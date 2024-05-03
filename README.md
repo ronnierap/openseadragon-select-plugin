@@ -87,7 +87,7 @@ you can customize the drawing process by changing the `drawOptions`, or evan add
 you can change the drawing options, be setting:
 
 ```js
-    viewer.selectionHandler.drawer.drawOptions = {...newOptions}
+    viewer.selectionHandler.frontCanvas.drawer.drawOptions = {...newOptions}
 ```
 defaults to:
 ```js
@@ -104,7 +104,7 @@ the default shape is `RectShape` but `PolygonShape`, `BrushShape` `LineShape` an
 
 other shapes can be activated by:
 ```js
-    viewer.selectionHandler.drawer.setDrawerShape(ShapeNames.name)
+    viewer.selectionHandler.frontCanvas.drawer.setDrawerShape(ShapeNames.name)
 ```
 
 you can add custom shapes by extending the abstract `BaseShape` class
@@ -152,13 +152,13 @@ once drawing is finished you need to call `this.finishDrawing()`.
 custom shapes need to be registered manually:
 
 ```js
-    viewer.selectionHandler.drawer.addShapes(ShapeNames.name, customShapesConstructor)
+    viewer.selectionHandler.frontCanvas.drawer.addShapes(ShapeNames.name, customShapesConstructor)
 ```
 
 and then you can select them by:
 
 ```js
-    viewer.selectionHandler.drawer.setDrawerShape(ShapeNames.name)
+    viewer.selectionHandler.frontCanvas.drawer.setDrawerShape(ShapeNames.name)
 ```
 
 ## License
