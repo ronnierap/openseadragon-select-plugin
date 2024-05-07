@@ -3,13 +3,13 @@
 	var osd = window.OpenSeadragon;
 	var plugin = window.OsdSelectionPlugin;
 	if (!osd) {
-		osd = require('openseadragon');
+		osd = import('openseadragon');
 		if (!osd) {
 			throw new Error('OpenSeadragon is missing.');
 		}
 	}
 	if (!plugin) {
-		plugin = require('./selection');
+		plugin = import('./selection');
 		if (!plugin) {
 			throw new Error(
 				'OsdSelectionPlugin in missing',
