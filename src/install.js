@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-(async function() {
-	var osd = window.OpenSeadragon;
-	var plugin = window.OsdSelectionPlugin;
+(async function () {
+	let osd = window.OpenSeadragon;
+	let plugin = window.OsdSelectionPlugin;
 	if (!osd) {
 		osd = await import('openseadragon');
 		if (!osd) {

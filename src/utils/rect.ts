@@ -425,7 +425,7 @@ let osd = window?.OpenSeadragon;
 if (!osd) {
 	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 	//@ts-ignore
-	osd = require('openseadragon');
+	osd = await import('openseadragon');
 }
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-ignore
