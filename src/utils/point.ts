@@ -6,6 +6,7 @@ class PointImplementation {
 		public x: number = 0,
 		public y: number = 0,
 	) {}
+
 	apply(
 		func: (v: number) => number,
 	): PointImplementation {
@@ -14,21 +15,25 @@ class PointImplementation {
 			func(this.y),
 		);
 	}
+
 	clone(): PointImplementation {
 		return new PointImplementation(this.x, this.y);
 	}
+
 	distanceTo(point: PointImplementation): number {
 		return Math.sqrt(
 			Math.pow(this.x - point.x, 2) +
 				Math.pow(this.y - point.y, 2),
 		);
 	}
+
 	divide(factor: number): PointImplementation {
 		return new PointImplementation(
 			this.x / factor,
 			this.y / factor,
 		);
 	}
+
 	equals(point: PointImplementation): boolean {
 		return (
 			point instanceof PointImplementation &&
@@ -36,21 +41,25 @@ class PointImplementation {
 			this.y === point.y
 		);
 	}
+
 	minus(point: PointImplementation): PointImplementation {
 		return new PointImplementation(
 			this.x - point.x,
 			this.y - point.y,
 		);
 	}
+
 	negate(): PointImplementation {
 		return new PointImplementation(-this.x, -this.y);
 	}
+
 	plus(point: PointImplementation): PointImplementation {
 		return new PointImplementation(
 			this.x + point.x,
 			this.y + point.y,
 		);
 	}
+
 	rotate(
 		degrees: number,
 		pivot?: PointImplementation,
@@ -94,18 +103,21 @@ class PointImplementation {
 			pivot.y;
 		return new PointImplementation(x, y);
 	}
+
 	squaredDistanceTo(point: PointImplementation): number {
 		return (
 			Math.pow(this.x - point.x, 2) +
 			Math.pow(this.y - point.y, 2)
 		);
 	}
+
 	times(factor: number): PointImplementation {
 		return new PointImplementation(
 			this.x * factor,
 			this.y * factor,
 		);
 	}
+
 	toString(): string {
 		return (
 			'(' +
@@ -121,20 +133,8 @@ let point: typeof OsdPoint =
 	PointImplementation as unknown as typeof OsdPoint;
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
-let osd = window?.OpenSeadragon;
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-//@ts-ignore
-if (!osd) {
-	// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-	//@ts-ignore
-	osd = await import('openseadragon');
-}
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-point = osd?.Point ?? PointImplementation;
+point = OpenSeadragon?.Point ?? PointImplementation;
 
 export type Point = OsdPoint;
 
